@@ -1,0 +1,37 @@
+<form novalidate @submit.prevent="onSubmit">
+  <div class="PostBuilder" :class="{isLoading: loading}">
+    <div class="PostBuilder-formGroup">
+      <label :for="form.author.id">Author</label>
+      <FormGroup class="PostBuilder-input" :formGroup="form.author">
+        <input :id="form.author.id" :name="form.author.name" v-model="form.author.viewValue" placeholder="Author" />
+      </FormGroup>
+      <div class="PostBuilder-status" v-if="form.author.dirty && form.author.invalid">
+        <span v-show="form.author.errors.required">Required</span>
+      </div>
+    </div>
+
+    <div class="PostBuilder-formGroup">
+      <label :for="form.title.id">Title</label>
+      <FormGroup class="PostBuilder-input" :formGroup="form.title">
+        <input :id="form.title.id" :name="form.title.name" v-model="form.title.viewValue" placeholder="Title" />
+      </FormGroup>
+      <div class="PostBuilder-status" v-if="form.title.dirty && form.title.invalid">
+        <span v-show="form.title.errors.required">Required</span>
+      </div>
+    </div>
+
+    <div class="PostBuilder-formGroup">
+      <label :for="form.message.id">Message</label>
+      <FormGroup class="PostBuilder-input" :formGroup="form.message">
+        <textarea :id="form.message.id" :name="form.message.name" v-model="form.message.viewValue" placeholder="Enter your message..."></textarea>
+      </FormGroup>
+      <div class="PostBuilder-status" v-if="form.message.dirty && form.message.invalid">
+        <span v-show="form.message.errors.required">Required</span>
+      </div>
+    </div>
+
+    <button class="PostBuilder-submit">
+      <span>Post it</span>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+<div>
+  <button class="btn" @click="prev()">
+    <span>Prev</span>
+  </button>
+  <button class="btn" v-for="page of pagesBeforeJump" :key="page.index" @click="go(page.index)">
+    <span v-text="page.index"></span>
+  </button>
+  <button class="btn" @click="jump()">&hellip;</button>
+  <button class="btn" v-for="page of pagesBeforeJump" :key="page.index" @click="go(page.index)">
+    <span v-text="page.index"></span>
+  </button>
+  <button class="btn" @click="next()">
+    <span>Next</span>
+  </button>
+</div>

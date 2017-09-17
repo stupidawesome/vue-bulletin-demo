@@ -1,0 +1,23 @@
+<div class="Bulletin" :class="{isLoading: loading}">
+  <header>
+    <h2>
+      <span v-text="bulletin.title"></span>
+    </h2>
+  </header>
+
+  <button class="Bulletin-button Bulletin-button" @click="createPost()">
+    <span>Write Something</span>
+  </button>
+
+  <div v-for="post of filteredPosts" :key="post.id" class="Bulletin-post">
+    <post :post="post" @onEdit="editPost($event)" @onDelete="deletePost($event)" @onReply="replyPost($event)"></post>
+  </div>
+
+  <!-- Not implemented
+    <paginator class="bulletinPaginator" v-on:page="setPage($event)" :pageSize="page.size" :pageIndex="page.index" :pageItems="bulletin.posts.length"></paginator>
+  -->
+
+  <footer>
+
+  </footer>
+</div>

@@ -1,0 +1,11 @@
+<div class="FormGroup" :class="{
+  valid: formGroup.valid,
+  invalid: formGroup.invalid,
+  dirty: formGroup.dirty,
+  pristine: formGroup.pristine,
+  touched: formGroup.touched,
+  untouched: formGroup.untouched
+}">
+  <slot></slot>
+  <div class="FormGroup-focus"></div>
+</div>
